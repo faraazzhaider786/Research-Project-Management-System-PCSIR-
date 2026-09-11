@@ -473,15 +473,18 @@ The frontend protects application routes with `ProtectedRoute`. Backend authoriz
 
 ## Screenshots
 
-Screenshots are not currently included in the repository. Add them under a future `screenshots/` directory and link them here, for example:
+<img width="1911" height="940" alt="image" src="https://github.com/user-attachments/assets/ef7cba5d-0e68-42ea-8fe9-d36f387d7a16" />
+<img width="1913" height="939" alt="image" src="https://github.com/user-attachments/assets/4c4f0de0-5b31-46b4-9f5a-046baa0f4e91" />
+<img width="1915" height="946" alt="image" src="https://github.com/user-attachments/assets/6f080466-7533-4a99-800c-5215d5b3579a" />
+<img width="1902" height="942" alt="image" src="https://github.com/user-attachments/assets/75f5c51a-0167-4551-b2df-b8dcc441b872" />
+<img width="1915" height="939" alt="image" src="https://github.com/user-attachments/assets/f5c048b4-b9f2-4974-bce7-fc2314d43e3a" />
 
-```text
-screenshots/
-├── login.png
-├── dashboard.png
-├── rnd-programs.png
-└── extension-requests.png
-```
+<img width="1896" height="943" alt="image" src="https://github.com/user-attachments/assets/0dec9320-3057-4386-8aec-f00c5e357a35" />
+<img width="1900" height="929" alt="image" src="https://github.com/user-attachments/assets/1ef9f020-0bed-472d-b23c-51012b37dc3d" />
+<img width="1919" height="920" alt="image" src="https://github.com/user-attachments/assets/1047eff3-715e-4e8b-b5b2-444a9803bc65" />
+<img width="1893" height="933" alt="image" src="https://github.com/user-attachments/assets/e761cd64-a839-4e5b-955a-457ccc984926" />
+![Uploading image.png…]()
+
 
 ## Deployment
 
