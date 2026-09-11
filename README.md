@@ -539,7 +539,7 @@ This project is an applied research-administration system for a PCSIR-oriented p
 
 **Faraaz Haider**
 
-Repository: [Research-Project-Management-System-PCSIR](https://github.com/faraazzhaider786/Research-Project-Management-System-PCSIR)
+Repository: [Research-Project-Management-System-PCSIR](https://github.com/faraazzhaider786/Research-Project-Management-System-PCSIR-.git)
 
 ## License
 
