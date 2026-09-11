@@ -103,7 +103,7 @@ export const referenceResources = {
 export const navGroups = [
   {
     label: "Workspace",
-    links: [{ to: "/dashboard", label: "Dashboard", icon: "LayoutDashboard" }, { to: "/rnd-programs", label: "R&D programs", icon: "FlaskConical" }, { to: "/progress-reports", label: "Progress reports", icon: "ClipboardList" }]
+    links: [{ to: "/dashboard", label: "Dashboard", icon: "LayoutDashboard" }, { to: "/rnd-programs", label: "R&D programs", icon: "FlaskConical" }, { to: "/progress-reports", label: "Progress reports", icon: "ClipboardList" }, { to: "/extension-requests", label: "Extension requests", icon: "CalendarClock" }]
   },
   {
     label: "Reference data",

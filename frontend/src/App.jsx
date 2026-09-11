@@ -9,6 +9,7 @@ import ReferencePage from "./pages/ReferencePage";
 import RndProgramsPage from "./pages/RndProgramsPage";
 import UserAccountsPage from "./pages/UserAccountsPage";
 import ProgressReportsPage from "./pages/ProgressReportsPage";
+import ExtensionRequestsPage from "./pages/ExtensionRequestsPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/rnd-programs" element={<RndProgramsPage />} />
               <Route path="/progress-reports" element={<ProgressReportsPage />} />
+              <Route path="/extension-requests" element={<ExtensionRequestsPage />} />
               <Route path="/employees" element={<ReferencePage resource="employees" />} />
               <Route path="/complexes" element={<ReferencePage resource="complexes" />} />
               <Route path="/labs" element={<ReferencePage resource="labs" />} />

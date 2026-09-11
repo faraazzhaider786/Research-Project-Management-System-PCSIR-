@@ -2,6 +2,7 @@ import {
   Banknote,
   BookOpen,
   Building2,
+  CalendarClock,
   ChevronLeft,
   ClipboardList,
   FlaskConical,
@@ -15,7 +16,7 @@ import { NavLink } from "react-router-dom";
 import { navGroups } from "../config/resources";
 import { useAuth } from "../context/useAuth";
 
-const icons = { Banknote, BookOpen, Building2, ClipboardList, FlaskConical, Landmark, LayoutDashboard, Microscope, UserCog, Users };
+const icons = { Banknote, BookOpen, Building2, CalendarClock, ClipboardList, FlaskConical, Landmark, LayoutDashboard, Microscope, UserCog, Users };
 
 function Sidebar({ open, onClose }) {
   const { user } = useAuth();

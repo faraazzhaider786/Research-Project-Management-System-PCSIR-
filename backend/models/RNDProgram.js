@@ -165,6 +165,7 @@ const rndProgramSchema = new mongoose.Schema(
         "ACTIVE",
         "LAPSED",
         "EXTENSION_REQUESTED",
+        "EXTENSION_REVIEW",
         "COMPLETED"
       ],
       default: "DRAFT"
@@ -175,6 +176,10 @@ const rndProgramSchema = new mongoose.Schema(
       min: 0,
       max: 100,
       default: 0
+    },
+
+    lapsedAt: {
+      type: Date
     },
 
     createdBy: {

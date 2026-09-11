@@ -11,7 +11,8 @@ import {
   objectRNDProgram,
   rejectRNDProgram,
   approveRNDProgram,
-  getRNDProgramHistory
+  getRNDProgramHistory,
+  detectLapsedPrograms
 } from "../controllers/rndProgramController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -20,6 +21,18 @@ import { authorize } from "../middleware/roleMiddleware.js";
 const router = express.Router();
 
 router.get("/", protect, getRNDPrograms);
+router.post("/detect-lapsed", protect, authorize("admin"), async (req, res) => {
+  try {
+    const updatedCount = await detectLapsedPrograms();
+    res.status(200).json({
+      message: `${updatedCount} overdue active project(s) marked as lapsed`,
+      updatedCount
+    });
+  } catch (error) {
+    console.error("Detect lapsed projects error:", error);
+    res.status(500).json({ message: "Unable to detect lapsed projects" });
+  }
+});
 router.get("/:id/history", protect, getRNDProgramHistory);
 router.get("/:id", protect, getRNDProgramById);
 

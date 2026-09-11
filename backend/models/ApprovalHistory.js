@@ -10,7 +10,17 @@ const approvalHistorySchema = new mongoose.Schema(
     },
     action: {
       type: String,
-      enum: ["SUBMITTED", "FORWARDED", "OBJECTED", "REJECTED", "APPROVED"],
+      enum: [
+        "SUBMITTED",
+        "FORWARDED",
+        "OBJECTED",
+        "REJECTED",
+        "APPROVED",
+        "EXTENSION_REQUESTED",
+        "EXTENSION_FORWARDED",
+        "EXTENSION_APPROVED",
+        "EXTENSION_REJECTED"
+      ],
       required: true
     },
     performedBy: {

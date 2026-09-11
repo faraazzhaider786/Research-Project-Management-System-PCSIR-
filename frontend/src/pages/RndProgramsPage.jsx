@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Edit3, Eye, Forward, History, Plus, Search, Send, Trash2, X } from "lucide-react";
+import { Edit3, Eye, Forward, History, Plus, RefreshCw, Search, Send, Trash2, X } from "lucide-react";
 import api from "../api/client";
 import { useAuth } from "../context/useAuth";
 
@@ -105,6 +105,7 @@ function RndProgramsPage() {
   const [history, setHistory] = useState([]);
   const [historyLoading, setHistoryLoading] = useState(false);
   const [detailProgram, setDetailProgram] = useState(null);
+  const [detectingLapsed, setDetectingLapsed] = useState(false);
 
   const loadPrograms = async () => {
     setLoading(true);
@@ -175,6 +176,19 @@ function RndProgramsPage() {
     try { await api.delete(`/rnd-programs/${program._id}`); await loadPrograms(); } catch (requestError) { setError(requestError.response?.data?.message || "Unable to delete this program."); }
   };
 
+  const detectLapsed = async () => {
+    setDetectingLapsed(true);
+    setError("");
+    try {
+      await api.post("/rnd-programs/detect-lapsed");
+      await loadPrograms();
+    } catch (requestError) {
+      setError(requestError.response?.data?.message || "Unable to detect lapsed projects.");
+    } finally {
+      setDetectingLapsed(false);
+    }
+  };
+
   const workflowActions = (program) => {
     const actions = [];
     if (user?.role === "admin" && ["DRAFT", "OBJECTED"].includes(program.status)) {
@@ -231,7 +245,7 @@ function RndProgramsPage() {
 
   return (
     <div className="reference-page programs-page">
-      <div className="page-heading"><div><span className="section-kicker">Research portfolio</span><h1>{roleCopy.heading}</h1><p>{roleCopy.description}</p></div>{canManage && <button className="primary-button" onClick={openCreate}><Plus size={17} /> New program</button>}</div>
+      <div className="page-heading"><div><span className="section-kicker">Research portfolio</span><h1>{roleCopy.heading}</h1><p>{roleCopy.description}</p></div><div className="page-heading-actions">{canManage && <><button className="outline-button" onClick={detectLapsed} disabled={detectingLapsed}><RefreshCw size={16} className={detectingLapsed ? "spin" : ""} /> {detectingLapsed ? "Checking deadlines" : "Check deadlines"}</button><button className="primary-button" onClick={openCreate}><Plus size={17} /> New program</button></>}</div></div>
       {error && !modalOpen && <p className="error-message page-alert">{error}</p>}
       <section className="data-card"><div className="table-toolbar"><div className="record-count"><strong>{programs.length}</strong> programs</div><div className="search-box"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search programs..." /></div></div>
         <div className="table-scroll"><table><thead><tr><th>Program</th><th>Type</th><th>Organization</th><th>Leader</th><th>Year</th><th>Status</th><th className="actions-heading">Actions</th></tr></thead><tbody>

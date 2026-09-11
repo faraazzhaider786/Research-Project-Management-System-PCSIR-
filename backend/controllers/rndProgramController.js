@@ -21,6 +21,25 @@ const populateProgram = (query) => {
   return query;
 };
 
+export const detectLapsedPrograms = async () => {
+  const now = new Date();
+  const result = await RNDProgram.updateMany(
+    {
+      status: "ACTIVE",
+      scheduledCompletionDate: { $lt: now },
+      progressPercentage: { $lt: 100 }
+    },
+    {
+      $set: {
+        status: "LAPSED",
+        lapsedAt: now
+      }
+    }
+  );
+
+  return result.modifiedCount;
+};
+
 const getVisibilityFilter = (user) => {
   if (user.role === "admin") {
     return {};
@@ -53,6 +72,7 @@ const getVisibilityFilter = (user) => {
 // Get all R&D programs
 export const getRNDPrograms = async (req, res) => {
   try {
+    await detectLapsedPrograms();
     const query = RNDProgram.find(getVisibilityFilter(req.user)).sort({
       createdAt: -1
     });
@@ -71,6 +91,7 @@ export const getRNDPrograms = async (req, res) => {
 // Get R&D program by ID
 export const getRNDProgramById = async (req, res) => {
   try {
+    await detectLapsedPrograms();
     const program = await populateProgram(
       RNDProgram.findOne({
         _id: req.params.id,
