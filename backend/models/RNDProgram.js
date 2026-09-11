@@ -170,6 +170,13 @@ const rndProgramSchema = new mongoose.Schema(
       default: "DRAFT"
     },
 
+    progressPercentage: {
+      type: Number,
+      min: 0,
+      max: 100,
+      default: 0
+    },
+
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

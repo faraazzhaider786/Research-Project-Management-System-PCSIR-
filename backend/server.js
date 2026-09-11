@@ -13,6 +13,7 @@ import fundingAgencyRoutes from "./routes/fundingAgencyRoutes.js";
 import psdpProjectRoutes from "./routes/psdpProjectRoutes.js";
 import rndProgramRoutes from "./routes/rndProgramRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import progressReportRoutes from "./routes/progressReportRoutes.js";
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use("/api/funding-agencies", fundingAgencyRoutes);
 app.use("/api/psdp-projects", psdpProjectRoutes);
 app.use("/api/rnd-programs", rndProgramRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/progress-reports", progressReportRoutes);
 app.get("/", (req, res) => {
   res.json({
     message: "PCSIR Research Project Management System API is running"
