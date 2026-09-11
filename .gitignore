@@ -1,5 +1,10 @@
 # Environment and secrets
+.env
+.env.*
+!.env.example
 backend/.env
+backend/.env.*
+!.env.example
 
 # Dependencies and build output
 backend/node_modules/
